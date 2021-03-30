@@ -1,8 +1,9 @@
 body {
 	font-family: 'Noto Sans CJK JP', sans-serif;
 	color: #2c2b2c;
+	background: #f5f6f9;
 	font-size: 14px;
-	line-height: 14px;
+	line-height: 24px;
 	letter-spacing: 0.8px;
 	position: relative;
 }
@@ -23,8 +24,97 @@ button:hover {
 }
 
 
-/*--------------header--------------*/
+/*---------------animation---------------*/
+.animation {
+	opacity : 0;
+	visibility: hidden;
+	transition: 0.5s;
+	transform: translateY(20px);
+	-moz-transition-delay:200ms;
+	-webkit-transition-delay:200ms;
+	-o-transition-delay:200ms;
+	-ms-transition-delay:200ms;
+}
+.active {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
 
+/*--------------header--------------*/
+header {
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+}
+
+nav {
+	width: 100%;
+	height: 82px;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 6.25%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.header-nav.change-color {
+	height: 80px;
+	background: #fff;
+	color: #1a3c9d;
+}
+
+.nav-scroll {
+	display: block !important;
+}
+
+nav ul{
+	width: 635px;
+	height: 17px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+nav ul .contact{
+	padding: 16px 25px;
+	background: #222;
+	color: #1a3c9d;
+}
+
+nav li {
+	margin-left: 32px;
+}
+
+nav li:first-childe {
+	margin-left: 0;
+}
+
+.company-name-sp {
+	display: none;
+}
+
+.language {
+	margin-left: 0;
+}
+
+.language::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 1px;
+	height: 17px;
+	background: #fff;
+	margin: 0 20px;
+}
+
+.language a {
+	opacity: 0.6;
+}
 
 /*--------------hamburger------------*/
 .hamburger {
@@ -101,20 +191,160 @@ button:hover {
 	,margin: 0 25px;
 }
 
+.border-btm {
+	width: 100%;
+	height: 100%;
+	border-bottom: 1px solid #555;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.drower li:last-child .border-btm{
+	border: none;
+}
+
+.language-sp {
+	height: 66px;
+}
+
+.language-sp p {
+	border-bottom: none;
+}
+
+.language-sp a {
+	opacity: 0.6;
+}
+
+.space {
+	display: inline-block;
+	margin: 0 20px;
+}
+
+.contact-sp {
+	height: 40px;
+	background: #222;
+	color: #fff;
+}
+
+.contact-sp p {
+	padding-top: 15px;
+}
+
 
 /*-------------mainvisual-------------*/
 .mainvisual {
 	width: 100%;
-	height: auto;
+	height: 43.75vw;
+	background: url(../img/main_pc.png) no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
 }
 
-.mainvisual img {
+.scroll-wrapper {
+	margin-right: 60px;
+}
+
+.scroll-wrapper p {
+	margin-bottom: 15px;
+}
+
+.scroll-bar {
+	width: 1px;
+	height: 120px;
+	display: block;
+	margin-left: 5px;
+	position: relative;
+	overflow: hidden;
+}
+
+.scroll-bar::before {
+	background: #fff;
+	content: "";
+	position: absolute;
+	left: 0;
+	height: 120px;
+	width: 1px;
+	animation: SlideIn 1.8s infinite;
+	z-index: 1;
+}
+
+@keyframes SlideIn {
+	0% {
+		transform: translateY(-80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(150px);
+	}
+}
+
+/*------------------topics------------------*/
+.topics-wrapper {
+	width: 100%;
+	height: 100%;
+	padding: 61px 0 69px;
+}
+
+.topics-inner {
+	width: 1400px;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+.topics-tit-wrapper {
+	width: 337px;
+	height: auto;
+	border-right: 1px solid #c5cce2;
+}
+
+.topics-img-wrapper {
+	width: 968px;
+	height: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-gap: 1px;
+	background: #c5cce2;
+}
+
+.topics-img-wrapper li {
+	width: 324px;
+	background: #f5f6f9;
+	padding: 0 30px;
+}
+
+li.top30 {
+	padding-top: 30px;
+}
+
+li.btm30 {
+	padding-bottom: 30px;
+}
+
+.topics-img-wrapper .img-wrapper {
 	width: 100%;
 	height: auto;
+	margin-bottom: 19px;
 }
 
+.topics-img-wrapper .time {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 12px;
+	margin-bottom: 11px;
+}
+
+.topics-img-wrapper .read {
+}
+
+
 /*--------------topscroll-btn-------------*/
-.topBtn {
+/*.topBtn {
   position:fixed;
   right: 40px;
   z-index: 10;
@@ -144,7 +374,7 @@ button:hover {
 .topBtn img {
 	width: 60px;
 	height: 60px;
-}
+}*/
 
 /*----------------footer----------------*/
 footer {
