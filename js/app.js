@@ -76,16 +76,7 @@ $(document).ready(function(){
   });
 });
 
-// nav固定
-jQuery(window).on('scroll', function () {
-    if (jQuery('.js-header-nav').height() < jQuery(this).scrollTop()) {
-        jQuery('.js-header-nav').addClass('change-color');
-        $('.company-name').children('img').attr('src', 'img/company_logoB_pc.png');
-    } else {
-        jQuery('.js-header-nav').removeClass('change-color');
-        $('.company-name').children('img').attr('src', 'img/company_logoW_pc.png');
-    }
-});
+
 
 
 
@@ -115,16 +106,27 @@ $(function(){
   });
 });
 
-// 画像スクロール時アニメーション
-// $(function(){
-//   $(window).on('load scroll',function (){
-//     $('.animation').each(function(){
-//       var target = $(this).offset().top;
-//       var scroll = $(window).scrollTop();
-//       var height = $(window).height();
-//       if (scroll > target - height){
-//         $(this).addClass('active');
-//       }
-//     });
-//   });
-// });
+// nav固定
+jQuery(window).on('scroll', function () {
+    if (jQuery('.js-header-nav').height() < jQuery(this).scrollTop()) {
+        jQuery('.js-header-nav').addClass('change-color');
+        $('.company-name').children('img').attr('src', 'img/company_logoB_pc.png');
+    } else {
+        jQuery('.js-header-nav').removeClass('change-color');
+        $('.company-name').children('img').attr('src', 'img/company_logoW_pc.png');
+    }
+});
+
+画像スクロール時アニメーション
+$(function(){
+  $(window).on('load scroll',function (){
+    $('.animation').each(function(){
+      var target = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var height = $(window).height();
+      if (scroll > target - height){
+        $(this).addClass('active');
+      }
+    });
+  });
+});
